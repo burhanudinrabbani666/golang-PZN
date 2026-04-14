@@ -10,7 +10,7 @@
 - {{template “nama”}}, artinya kita akan meng-import template “nama” tanpa memberikan data apapun
 - {{template “nama” .Value}}, artinya kita akan meng-import template “nama” dengan memberikann data value
 
-```go
+```gohtml
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,13 +21,13 @@
   <body>
 ```
 
-```go
+```gohtml
 {{template "header.gohtml" .}}
 <h1>Hello {{.Name}}</h1>
 {{template "footer.gohtml" .}}
 ```
 
-```go
+```gohtml
 </body>
 </html>
 ```
