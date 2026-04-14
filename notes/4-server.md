@@ -43,8 +43,8 @@ func TestServer(t *testing.T) {
 
 Setelah server berjalan, buka browser atau gunakan `curl` untuk mengaksesnya:
 
-```
-http://localhost:8080
+```bash
+curl http://localhost:8080
 ```
 
 ---
