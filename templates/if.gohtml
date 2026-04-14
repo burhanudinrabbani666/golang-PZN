@@ -6,6 +6,10 @@
   <title>{{.Title}}</title>
 </head>
 <body>
-  <h1>Hello {{.Name}}, <span>{{.Address.City}}</span></h1>
+  {{if .Name}}
+  <h1>Hello {{.Name}}</h1>
+  {{else}}
+  <p>Hello, What is your name?</p>
+  {{end}}
 </body>
 </html>

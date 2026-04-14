@@ -29,7 +29,7 @@ func TestDataTemplateMap(t *testing.T) {
 }
 
 type AddressDetail struct {
-	Street string
+	City string
 }
 
 type Page struct {
@@ -44,7 +44,7 @@ func TemplateDataStruct(w http.ResponseWriter, r *http.Request) {
 		Title: "Struct",
 		Name:  "Burhanudin Rabbani",
 		Address: AddressDetail{
-			Street: "Cirebon",
+			City: "Cirebon",
 		},
 	})
 }
