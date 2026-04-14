@@ -13,7 +13,7 @@ func TestRequest(t *testing.T) {
 	}
 
 	server := http.Server{
-		Addr:    Al,
+		Addr:    localhost,
 		Handler: handler,
 	}
 

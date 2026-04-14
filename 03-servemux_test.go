@@ -15,7 +15,7 @@ func TestServerMux(t *testing.T) {
 	mux.HandleFunc("/images", func(w http.ResponseWriter, r *http.Request) { fmt.Fprint(w, "Images") })
 
 	server := http.Server{
-		Addr:    Al,
+		Addr:    localhost,
 		Handler: mux,
 	}
 
@@ -39,7 +39,7 @@ func TestServerMuxUrlPattern(t *testing.T) {
 	mux.HandleFunc("/images/thumbnails/", func(w http.ResponseWriter, r *http.Request) { fmt.Fprint(w, "Thumbnails") })
 
 	server := http.Server{
-		Addr:    Al,
+		Addr:    localhost,
 		Handler: mux,
 	}
 
