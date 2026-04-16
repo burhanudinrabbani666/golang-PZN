@@ -69,7 +69,6 @@ func TestTemplateHtmlDirectory(t *testing.T) {
 // --------------------------------------------------------------------------------------------//
 // --------------------------------------------------------------------------------------------//
 
-
 func TemplateEmbed(w http.ResponseWriter, r *http.Request) {
 	simpleTemplate := template.Must(template.ParseFS(Templates, "templates/*.gohtml"))
 	simpleTemplate.ExecuteTemplate(w, "simple.gohtml", "Hello from Template Embed")

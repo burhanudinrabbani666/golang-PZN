@@ -12,11 +12,12 @@ import (
 )
 
 // Global Vairable
+//
 //go:embed templates/*.gohtml
 var Templates embed.FS
 var MyTemplate = template.Must(template.ParseFS(Templates, "templates/*.gohtml"))
 
-func TemplateCaching(writer http.ResponseWriter, response *http.Request){
+func TemplateCaching(writer http.ResponseWriter, request *http.Request) {
 	MyTemplate.ExecuteTemplate(writer, "simple.gohtml", "Hello Template Chacing")
 }
 

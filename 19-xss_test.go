@@ -9,12 +9,10 @@ import (
 	"testing"
 )
 
-
-func TemplateAutoEscape(writer http.ResponseWriter, response *http.Request){
+func TemplateAutoEscape(writer http.ResponseWriter, response *http.Request) {
 	MyTemplate.ExecuteTemplate(writer, "post.gohtml", map[string]any{
 		"Title": "XSS Test",
-		"Body": template.HTML("<p>Ini Adalah Auto Escape</p><script>alert('Anda di Hack')</script>"),
-
+		"Body":  template.HTML("<p>Ini Adalah Auto Escape</p><script>alert('Anda di Hack')</script>"),
 	})
 }
 
@@ -29,28 +27,26 @@ func TestTemplateAutoEscape(t *testing.T) {
 
 }
 
-
 func TestTemplateAutoEscapeSever(t *testing.T) {
 	server := http.Server{
-		Addr: localhost,
+		Addr:    localhost,
 		Handler: http.HandlerFunc(TemplateAutoEscape),
 	}
 
 	err := server.ListenAndServe()
 
-	if err != nil{
+	if err != nil {
 		panic(err)
 	}
 }
 
-
 // --------------------------------------------------------- //
 // --------------------------------------------------------- //
 
-func TemplateXSS(writer http.ResponseWriter, request *http.Request){
+func TemplateXSS(writer http.ResponseWriter, request *http.Request) {
 	MyTemplate.ExecuteTemplate(writer, "post.gohtml", map[string]any{
 		"Title": "XSS Test",
-		"Body": template.HTML(request.URL.Query().Get("body")),
+		"Body":  template.HTML(request.URL.Query().Get("body")),
 	})
 }
 
@@ -65,16 +61,15 @@ func TestTemplateXss(t *testing.T) {
 
 }
 
-
 func TestTemplateXssServer(t *testing.T) {
 	server := http.Server{
-		Addr: localhost,
+		Addr:    localhost,
 		Handler: http.HandlerFunc(TemplateXSS),
 	}
 
 	err := server.ListenAndServe()
 
-	if err != nil{
+	if err != nil {
 		panic(err)
 	}
 }
