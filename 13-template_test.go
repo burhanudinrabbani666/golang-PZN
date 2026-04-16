@@ -1,7 +1,6 @@
 package golangpzn
 
 import (
-	"embed"
 	_ "embed"
 	"fmt"
 	"html/template"
@@ -70,19 +69,17 @@ func TestTemplateHtmlDirectory(t *testing.T) {
 // --------------------------------------------------------------------------------------------//
 // --------------------------------------------------------------------------------------------//
 
-//go:embed templates/*.gohtml
-var templates embed.FS
 
 func TemplateEmbed(w http.ResponseWriter, r *http.Request) {
-	simpleTemplate := template.Must(template.ParseFS(templates, "templates/*.gohtml"))
+	simpleTemplate := template.Must(template.ParseFS(Templates, "templates/*.gohtml"))
 	simpleTemplate.ExecuteTemplate(w, "simple.gohtml", "Hello from Template Embed")
 }
 
 func TestTemplateHtmlEmbed(t *testing.T) {
-	request := httptest.NewRequest(http.MethodGet, localhost, nil)
+	request := httptest.NewRequest(http.MethodGet, localhostFull, nil)
 	recorder := httptest.NewRecorder()
 
-	TemplateEmbed(recorder, request)
+	TemplateCaching(recorder, request)
 
 	body, _ := io.ReadAll(recorder.Result().Body)
 	fmt.Println(string(body))
