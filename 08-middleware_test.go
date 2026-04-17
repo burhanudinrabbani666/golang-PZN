@@ -1,9 +1,15 @@
-# Middleware
+package main
 
-- HttpRouter hanyalah library untuk http router saja, tidak ada fitur lain selain router
-- Dan karena Router merupakan implementasi dari http.Handler, jadi untuk middleware, kita bisa membuat sendiri, seperti yang sudah kita bahas pada course Go-Lang Web
+import (
+	"fmt"
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 
-```go
+	"github.com/julienschmidt/httprouter"
+	"github.com/stretchr/testify/assert"
+)
 
 type LogMiddleware struct {
 	http.Handler
@@ -35,4 +41,3 @@ func TestMiddleware(t *testing.T) {
 
 	assert.Equal(t, "Middleware", string(body))
 }
-```
