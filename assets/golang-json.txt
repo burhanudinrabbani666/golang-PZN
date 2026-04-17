@@ -35,6 +35,7 @@ https://www.json.org/json-en.html
 
 Kode : Contoh JSON
 
+
 Package json
 Go-Lang sudah menyediakan package json, dimana kita bisa menggunakan package ini untuk melakukan konversi data ke JSON (encode) atau sebaliknya (decode)
 https://pkg.go.dev/encoding/json 
