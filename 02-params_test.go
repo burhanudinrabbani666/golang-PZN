@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"io"
-	"net/http"
 	"net/http/httptest"
 	"testing"
 
@@ -14,11 +12,6 @@ import (
 func TestHttprouterParams(t *testing.T) {
 
 	router := httprouter.New()
-
-	router.GET("/products/:id", func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-		text := "Products " + p.ByName("id")
-		fmt.Fprint(w, text)
-	})
 
 	request := httptest.NewRequest("GET", "http://localhost:8080/products/1", nil)
 	recorder := httptest.NewRecorder()
