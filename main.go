@@ -12,6 +12,7 @@ func main() {
 
 	router.GET("/", func(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 		fmt.Fprint(w, "Hello")
+		// panic("Ups")
 	})
 
 	// ------------------ Server ------------------- //
