@@ -1,11 +1,20 @@
 # Pengenalan package json
 
-## Pengenalan JSON
-
 - JSON singkatan dari JavaScript Object Notation, merupakan struktur format data yang bentuknya seperti Object di JavaScript
 - JSON merupakan struktur format data yang paling banyak digunakan saat kita membuat RESTful API
 - Dan pate kelas ini kita akan menggunakan JSON juga
 - https://www.json.org/json-en.html
+
+```json
+{
+  "name": "Burhanudin Rabbani",
+  "age": 24,
+  "address": {
+    "city": "Cirebon",
+    "country": "Indonesia"
+  }
+}
+```
 
 ## Package json
 

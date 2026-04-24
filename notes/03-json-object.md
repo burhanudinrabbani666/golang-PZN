@@ -5,6 +5,16 @@
 - Jika mengikuti kontrak json.org, data JSON bentuknya adalah Object dan Array
 - Sedangkan value nya baru berupa
 
+```json
+	// Hanya kirim Value, tidak ideal atau real word case ❎
+	"Bani"
+
+	// Normal JSON ✅
+  {
+		"Name": "Bani"
+	}
+```
+
 ## Struct
 
 - JSON Object di Go-Lang direpresentasikan dengan tipe data Struct
@@ -26,6 +36,14 @@ func TestJSONObject(t *testing.T) {
 
 	bytes, _ := json.Marshal(customer)
 	fmt.Println(string(bytes))
+	/*
+		Return:
+			{
+				"FirstName":"Burhanudin",
+				"MiddleName":"D",
+				"LastName":"Rabbani",
+			}
+	*/
 
 }
 ```

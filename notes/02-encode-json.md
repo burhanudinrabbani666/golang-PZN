@@ -1,6 +1,6 @@
 # encode JSON
 
-- Go-Lang telah menyediakan function untuk melakukan konversi data ke JSON, yaitu menggunakan function json.Marshal(interface{})
+- Go-Lang telah menyediakan function untuk melakukan konversi data ke JSON, yaitu menggunakan function `json.Marshal(interface{})`
 - Karena parameter nya adalah interface{}, maka kita bisa masukan tipe data apapun ke dalam function Marshal
 
 ```go
@@ -11,14 +11,22 @@ func LogJson(data any) {
 		panic(errorJson)
 	}
 
+	// Byte harus di conversi ke string supaya bisa dibaca.
 	fmt.Println(string(byte))
 }
 
 func TestEncode(t *testing.T) {
-	LogJson("Bani")
-	LogJson(1)
-	LogJson(true)
-	LogJson([]string{"Burhanudin", "D", "Rabbani"})
+
+	fmt.Println("Bani") // Kalau print string biasa tidak ada ""
+	LogJson("Bani")     // "Bani", di Json string add ""
+	LogJson(1)          // 1
+	LogJson(true)       // true
+
+	LogJson([]string{
+		"Burhanudin",
+		"D",
+		"Rabbani",
+	}) // ["Burhanudin", "D", "Rabbani"]
 }
 ```
 
