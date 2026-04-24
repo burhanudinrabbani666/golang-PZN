@@ -1,7 +1,9 @@
-# Streaming encoder
+# streaming encoder
 
-- Sebelumnya kita belajar package json dengan melakukan konversi data JSON yang sudah dalam bentuk variable dan data string atau []byte
-- Pada kenyataanya, kadang data JSON nya berasal dari Input berupa io.Reader (File, Network, Request Body)
-- Kita bisa saja membaca semua datanya terlebih dahulu, lalu simpan di variable, baru lakukan konversi dari JSON, namun hal ini sebenarnya tidak perlu dilakukan, karena package json memiliki fitur untuk membaca data dari Stream
+- Selain decoder, package json juga mendukung membuat Encoder yang bisa digunakan untuk menulis langsung JSON nya ke io.Writer
+- Dengan begitu, kita tidak perlu menyimpan JSON datanya terlebih dahulu ke dalam variable string atau []byte, kita bisa langsung tulis ke io.Writer
 
-Next: []()
+## json.Encoder
+
+- Untuk membuat Encoder, kita bisa menggunakan function json.NewEncoder(writer)
+- Dan untuk menulis data sebagai JSON langsung ke writer, kita bisa gunakan function Encode(interface{})
